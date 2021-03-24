@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+:root {
+  --primary: #4caf50;
+  --secondary: #e53935;
+  --primary-light: #80e27e;
+  --primary-darken: #087f23;
+  --secondary-light: #ff6f60;
+  --secondary-dark: #ab000d;
+}
