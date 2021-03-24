@@ -9,7 +9,7 @@ function Header() {
       <Link to="/" className="soon">
         Filmaria
       </Link>
-      <Link to="/salvo" className="favorite">
+      <Link to="/salvo" className="favorites">
         Salvo
       </Link>
     </header>
