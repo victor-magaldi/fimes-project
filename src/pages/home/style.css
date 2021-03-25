@@ -9,6 +9,9 @@
   flex-direction: column;
   clear: center;
 }
+.container--home .list-movies img {
+  transition: 0.3s ease-in-out;
+}
 .container--home .list-movies article {
   height: calc(100% + 48px);
   display: flex;
@@ -28,7 +31,6 @@
   text-decoration: none;
   background-color: var(--primary);
   color: #fff;
-  border-radius: 0 0px 5px 5px;
   width: 100%;
 
   position: absolute;
