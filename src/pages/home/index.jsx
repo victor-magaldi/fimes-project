@@ -23,7 +23,7 @@ function Home() {
             <article key={filme.id}>
               <h3>{filme.nome}</h3>
               <img src={filme.foto} alt={filme.id} />
-              <Link to="/">Acessar</Link>
+              <Link to={`/filme/${filme.id}`}>Acessar</Link>
             </article>
           );
         })}
