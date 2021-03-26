@@ -1,13 +1,34 @@
 import "./style.css";
 
 import { useParams } from "react-router-dom";
+import api from "../../services/app";
+import { useEffect, useState } from "react";
 
 export default function Filme() {
   const { id } = useParams();
-
-  return (
-    <div>
-      <h2>filme{id}</h2>
-    </div>
-  );
+  const [filme, setfilme] = useState({});
+  const [loading, setloading] = useState(true);
+  useEffect(() => {
+    async function loadFilmes() {
+      const response = await api.get(`/r-api/?api=filmes/${id}`);
+      setfilme(response.data);
+      setloading(false);
+    }
+    loadFilmes();
+  }, [id]);
+  if (!loading) {
+    return (
+      <div className="detalhes">
+        <h3>{filme.nome}</h3>
+        <img src={filme.foto} alt={filme.nome} />
+        <p>{filme.sinopse}</p>
+      </div>
+    );
+  } else {
+    return (
+      <div className="loading">
+        Carregando <span className="loading__spin"></span>
+      </div>
+    );
+  }
 }
