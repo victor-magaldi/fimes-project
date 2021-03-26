@@ -1,21 +1,30 @@
 import "./style.css";
 
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import api from "../../services/app";
 import { useEffect, useState } from "react";
 
 export default function Filme() {
   const { id } = useParams();
+  const history = useHistory();
+
   const [filme, setfilme] = useState({});
   const [loading, setloading] = useState(true);
   useEffect(() => {
     async function loadFilmes() {
       const response = await api.get(`/r-api/?api=filmes/${id}`);
+
+      if (!response.data.length) {
+        // tentou acessar um Id que não exite
+        history.replace("/");
+        return;
+      }
       setfilme(response.data);
       setloading(false);
     }
     loadFilmes();
-  }, [id]);
+  }, [id, history]);
+
   if (!loading) {
     return (
       <div className="detalhes">
@@ -27,7 +36,7 @@ export default function Filme() {
   } else {
     return (
       <div className="loading">
-        Carregando <span className="loading__spin"></span>
+        Carregando seu filme <span className="loading__spin"></span>
       </div>
     );
   }
