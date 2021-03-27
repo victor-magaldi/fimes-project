@@ -1,0 +1,44 @@
+.myMovies {
+  margin: 0 auto;
+  width: 70%;
+}
+.myMovies h2 {
+  text-align: center;
+}
+.myMovies ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+}
+.myMovies ul li:nth-child(odd) {
+  background-color: #ccc;
+}
+.myMovies .buttonsContainer {
+  display: flex;
+  align-items: center;
+  align-items: center;
+  gap: 24px;
+}
+.buttonsContainer a,
+.buttonsContainer a:active,
+.buttonsContainer a:hover {
+  text-decoration: none;
+  color: var(--secondary);
+}
+.buttonsContainer button {
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  background-color: crimson;
+  transition: 0.3s ease-in-out;
+  padding: 5px;
+  color: #fff;
+}
+.buttonsContainer button:hover {
+  opacity: 0.95;
+}
+.myMovies span {
+  font-size: 14px;
+  color: black;
+}
