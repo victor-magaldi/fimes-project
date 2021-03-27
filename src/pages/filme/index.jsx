@@ -4,6 +4,8 @@ import { useParams, useHistory } from "react-router-dom";
 import api from "../../services/app";
 import { useEffect, useState } from "react";
 
+import { toast } from "react-toastify";
+
 export default function Filme() {
   const { id } = useParams();
   const history = useHistory();
@@ -40,12 +42,12 @@ export default function Filme() {
       (movieSaved) => movieSaved.id === filme.id
     );
     if (hasMovie) {
-      alert("Já possui o filme");
+      toast.error("Já possui o filme");
       return;
     }
     movieSaveds.push(filme);
     localStorage.setItem("movies", JSON.stringify(movieSaveds));
-    alert("Filme salvo com sucesso");
+    toast.succes("Filme salvo com sucesso");
   }
 
   if (!loading) {
